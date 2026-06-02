@@ -560,5 +560,8 @@ background-color: var(--cloud-blue);
     .breathe-hero {
     background-image: url("../images/AIR4U_Darkmode_Background.png");
 }
+.btn-blue:focus-visible, .btn-orange:focus-visible, .darkmode-btn:focus-visible, .product:focus-visible, a:focus-visible {
+    outline-color: gold;
+} 
 }
 
