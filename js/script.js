@@ -26,39 +26,39 @@ if (savedTheme) {
 
 // Dark/Light Mode Toggle
 addSafeEventListener(themeToggleButton, "click", () => {
-    body.classList.toggle("dark-mode");
-    
-    if (body.classList.contains("dark-mode")) {
-      localStorage.setItem("theme", "dark-mode");
-    } else {
-      localStorage.setItem("theme", "");
-    }
-  });
+  body.classList.toggle("dark-mode");
+
+  if (body.classList.contains("dark-mode")) {
+    localStorage.setItem("theme", "dark-mode");
+  } else {
+    localStorage.setItem("theme", "");
+  }
+});
 
 // Contact Form
 if (contactForm && MessageResponse) {
-  addSafeEventListener(contactForm, "submit", function(event) {
+  addSafeEventListener(contactForm, "submit", function (event) {
     event.preventDefault();
     const nameInput = document.getElementById("nameInput").value.trim();
     const emailInput = document.getElementById("emailInput").value.trim();
     const orderInput = document.getElementById("orderInput").value.trim();
     const messageInput = document.getElementById("messageInput").value.trim();
-    
-    if (nameInput === "" || emailInput === "" || messageInput === "") {
-    MessageResponse.textContent = "Please complete all fields.";
-    MessageResponse.className = "error";
-    return;
-}
 
-  if (!emailInput.includes("@")) {
-    MessageResponse.textContent = "Enter a valid email address.";
-    MessageResponse.className = "error";
-    return;
-}
+    if (nameInput === "" || emailInput === "" || messageInput === "") {
+      MessageResponse.textContent = "Please complete all fields.";
+      MessageResponse.className = "error";
+      return;
+    }
+
+    if (!emailInput.includes("@")) {
+      MessageResponse.textContent = "Enter a valid email address.";
+      MessageResponse.className = "error";
+      return;
+    }
 
     MessageResponse.textContent = "Thank you for reaching out, " + nameInput + "!";
     MessageResponse.classList.remove("error");
-    contactForm.reset(); 
+    contactForm.reset();
   });
 
 }
